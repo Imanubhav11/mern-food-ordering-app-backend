@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import myUserRoute from './routes/myUserRoute';
 import { v2 as cloudinary } from 'cloudinary';
 import MyRestaurantRoute from './routes/MyRestaurantRoute';
+import restaurantRoute from "./routes/RestaurantRoute";
+
 
 mongoose
     .connect(process.env.MONGODB_CONNECTION_STRING as string)
@@ -29,6 +31,7 @@ app.use("/api/my/user",myUserRoute);
 
 app.use("/api/my/restaurant", MyRestaurantRoute);
 
+app.use("/api/restaurant",restaurantRoute);
 
 
 app.listen(5090, () => {
