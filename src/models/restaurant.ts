@@ -4,6 +4,7 @@ const menuItemSchema = new mongoose.Schema({
     _id: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
+        //whenever a menu item is created mongoose provides it with a default id
         default: () => new mongoose.Types.ObjectId(),
       },
     name: { type: String, required: true},
