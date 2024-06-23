@@ -4,6 +4,8 @@ import OrderController from '../controller/OrderController';
 
 const router = express.Router();
 
+router.get("/", jwtCheck, jwtParse, OrderController.getMyOrders);
+
 //as we are creating the checkout functionality so we use the post request
 router.post(
     "/checkout/create-checkout-session",

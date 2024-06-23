@@ -15,6 +15,12 @@ const upload = multer({
   },
 });
 
+
+router.get("/order", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurantOrders);
+
+//patch is used to update a particular part of the function not the whole function
+router.patch('/order/:orderId/status', jwtCheck, jwtParse, MyRestaurantController.updateOrderStatus);
+
 //GET api/my/restaurant
 router.get('/', jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
 
